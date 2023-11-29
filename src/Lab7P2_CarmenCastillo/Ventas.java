@@ -10,4 +10,6 @@ package Lab7P2_CarmenCastillo;
  */
 public class Ventas {
     
+    
+    
 }
