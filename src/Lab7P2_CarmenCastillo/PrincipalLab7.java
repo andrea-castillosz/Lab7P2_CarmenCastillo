@@ -4,6 +4,15 @@
  */
 package Lab7P2_CarmenCastillo;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author casti
@@ -16,7 +25,13 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     public PrincipalLab7() {
         initComponents();
         this.setLocationRelativeTo(null);
+        llenarLista();
+        llenarJtreePersonasAdmin();
+
     }
+
+    public static ArrayList<Usuario> listuser = new ArrayList();
+    public static ArrayList<Restaurante> listrest = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,14 +61,12 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         userLabel10 = new javax.swing.JLabel();
         txt_precioP = new javax.swing.JFormattedTextField();
         btn_addProdu = new javax.swing.JToggleButton();
+        cb_RestProd = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         userLabel11 = new javax.swing.JLabel();
         txt_nRestaurante = new javax.swing.JTextField();
-        userLabel12 = new javax.swing.JLabel();
         txt_Ubicacion = new javax.swing.JFormattedTextField();
         btn_addRestaurante = new javax.swing.JToggleButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lista_Prod = new javax.swing.JList<>();
         userLabel13 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -67,7 +80,10 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_Restaurantes = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_Usuarios = new javax.swing.JTree();
+        jToggleButton1 = new javax.swing.JToggleButton();
         vParaUsuario = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -103,6 +119,11 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         btn_CrearUsuarioCU.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_CrearUsuarioCU.setForeground(new java.awt.Color(0, 0, 0));
         btn_CrearUsuarioCU.setText("Crear Usuario");
+        btn_CrearUsuarioCU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CrearUsuarioCUMouseClicked(evt);
+            }
+        });
 
         title1.setFont(new java.awt.Font("Roboto Black", 1, 48)); // NOI18N
         title1.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +233,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(98, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btn_addProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -221,13 +242,16 @@ public class PrincipalLab7 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_nProducto)
-                            .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cb_RestProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(95, 95, 95))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(73, 73, 73)
+                .addComponent(cb_RestProd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_nProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,10 +276,6 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         txt_nRestaurante.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         txt_nRestaurante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        userLabel12.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        userLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        userLabel12.setText("Productos");
-
         txt_Ubicacion.setBackground(new java.awt.Color(204, 204, 204));
         txt_Ubicacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
@@ -263,10 +283,6 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         btn_addRestaurante.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_addRestaurante.setForeground(new java.awt.Color(0, 0, 0));
         btn_addRestaurante.setText("Agregar Restaurante");
-
-        lista_Prod.setBackground(new java.awt.Color(204, 204, 204));
-        lista_Prod.setForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(lista_Prod);
 
         userLabel13.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         userLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -278,28 +294,25 @@ public class PrincipalLab7 extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(72, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btn_addRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(userLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18))
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(userLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(30, 30, 30)))
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_nRestaurante)
-                                .addComponent(txt_Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_addRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(userLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(userLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nRestaurante)
+                            .addComponent(txt_Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(95, 95, 95))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(181, 181, 181)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_nRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -307,11 +320,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(userLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(124, 124, 124)
                 .addComponent(btn_addRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
         );
@@ -400,24 +409,44 @@ public class PrincipalLab7 extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTree1.setBackground(new java.awt.Color(255, 255, 255));
-        jTree1.setForeground(new java.awt.Color(51, 0, 51));
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
+        jt_Restaurantes.setBackground(new java.awt.Color(255, 255, 255));
+        jt_Restaurantes.setForeground(new java.awt.Color(51, 0, 51));
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Restaurantes");
+        jt_Restaurantes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jt_Restaurantes);
+
+        jt_Usuarios.setBackground(new java.awt.Color(255, 255, 255));
+        jt_Usuarios.setForeground(new java.awt.Color(51, 0, 51));
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Usuarios");
+        jt_Usuarios.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jt_Usuarios);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 340, 540));
+
+        jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jToggleButton1.setText("Log Out");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
 
         javax.swing.GroupLayout vParaAdminLayout = new javax.swing.GroupLayout(vParaAdmin.getContentPane());
         vParaAdmin.getContentPane().setLayout(vParaAdminLayout);
@@ -429,7 +458,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         );
         vParaAdminLayout.setVerticalGroup(
             vParaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(102, 0, 102));
@@ -474,16 +503,31 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         btn_IniciarS.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_IniciarS.setForeground(new java.awt.Color(0, 0, 0));
         btn_IniciarS.setText("Iniciar Sesion");
+        btn_IniciarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_IniciarSMouseClicked(evt);
+            }
+        });
 
         btn_CrearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btn_CrearUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_CrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         btn_CrearUsuario.setText("Crear Usuario");
+        btn_CrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CrearUsuarioMouseClicked(evt);
+            }
+        });
 
         btn_IniciarAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btn_IniciarAdmin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_IniciarAdmin.setForeground(new java.awt.Color(0, 0, 0));
         btn_IniciarAdmin.setText("Iniciar Sesión como Administrador");
+        btn_IniciarAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_IniciarAdminMouseClicked(evt);
+            }
+        });
 
         userLabel8.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         userLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -560,6 +604,115 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_IniciarAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_IniciarAdminMouseClicked
+        this.setVisible(false);
+        vParaAdmin.pack();
+        vParaAdmin.setLocationRelativeTo(null);
+        vParaAdmin.setVisible(true);
+    }//GEN-LAST:event_btn_IniciarAdminMouseClicked
+
+    private void btn_CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearUsuarioMouseClicked
+        this.setVisible(false);
+        vCrearUsuario.pack();
+        vCrearUsuario.setLocationRelativeTo(null);
+        vCrearUsuario.setVisible(true);
+    }//GEN-LAST:event_btn_CrearUsuarioMouseClicked
+
+    private void btn_IniciarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_IniciarSMouseClicked
+
+    }//GEN-LAST:event_btn_IniciarSMouseClicked
+
+    private void btn_CrearUsuarioCUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearUsuarioCUMouseClicked
+        boolean usuarioRep = false;
+        for (int i = 0; i < listuser.size(); i++) {
+
+            if (txt_UsuarioCU.getText().equals(listuser.get(i).getUsuario())) {
+                JOptionPane.showMessageDialog(null, "¡Este usuario ya existe!");
+                usuarioRep = true;
+            }
+
+        }
+
+        if (!usuarioRep) {
+            AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
+            ap.cargarArchivo();
+            Usuario u = new Usuario(txt_NombreCU.getText(), txt_UsuarioCU.getText(), txt_ContraCU.getText(), 0);
+            ap.getListaUser().add(u);
+            try {
+                ap.escribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(PrincipalLab7.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+//            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_Usuarios.getModel();
+//            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+//
+//            int centinela = -1;
+//            for (int i = 0; i < raiz.getChildCount(); i++) {
+//                if (raiz.getChildAt(i).toString().equals(txt_NombreCU.getText())) {
+//                    DefaultMutableTreeNode us = new DefaultMutableTreeNode(u.getUsuario());
+//                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(us);
+//                    centinela = 1;
+//                } //fin if
+//            } //fin for  
+//
+//            if (centinela == -1) {
+//                DefaultMutableTreeNode p = new DefaultMutableTreeNode(u.getNombre());
+//                DefaultMutableTreeNode us = new DefaultMutableTreeNode(u.getUsuario());
+//                p.add(us);
+//                raiz.add(p);
+//            }  // fin if          
+//            modeloARBOL.reload();
+//
+//            JOptionPane.showMessageDialog(null, "¡Usuario Creado!");
+//
+//            vCrearUsuario.pack();
+//            vCrearUsuario.setLocationRelativeTo(null);
+//            vCrearUsuario.setVisible(false);
+//            this.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btn_CrearUsuarioCUMouseClicked
+
+    private void llenarLista() {
+        for (Usuario v : listuser) {
+            listuser.add(v);
+        }
+    }
+
+    private void llenarJtreePersonasAdmin() {
+
+        for (Usuario upa : listuser) {
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_Usuarios.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+
+            int centinela = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(txt_NombreCU.getText())) {
+                    DefaultMutableTreeNode us = new DefaultMutableTreeNode(upa.getUsuario());
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(us);
+                    centinela = 1;
+                } //fin if
+            } //fin for  
+
+            if (centinela == -1) {
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(upa.getNombre());
+                DefaultMutableTreeNode us = new DefaultMutableTreeNode(upa.getUsuario());
+                p.add(us);
+                raiz.add(p);
+            }  // fin if          
+            modeloARBOL.reload();
+        }
+
+    }
+
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        vParaAdmin.pack();
+        vParaAdmin.setLocationRelativeTo(null);
+        vParaAdmin.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -602,6 +755,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     private javax.swing.JToggleButton btn_IniciarS;
     private javax.swing.JToggleButton btn_addProdu;
     private javax.swing.JToggleButton btn_addRestaurante;
+    private javax.swing.JComboBox<String> cb_RestProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -618,9 +772,10 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTree jt_Restaurantes;
+    private javax.swing.JTree jt_Usuarios;
     private javax.swing.JList<String> lista_DelRest;
-    private javax.swing.JList<String> lista_Prod;
     private javax.swing.JList<String> lista_TopRest;
     private javax.swing.JList<String> lista_TopUsuarios;
     private javax.swing.JTabbedPane pane;
@@ -637,7 +792,6 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txt_precioP;
     private javax.swing.JLabel userLabel10;
     private javax.swing.JLabel userLabel11;
-    private javax.swing.JLabel userLabel12;
     private javax.swing.JLabel userLabel13;
     private javax.swing.JLabel userLabel3;
     private javax.swing.JLabel userLabel4;

@@ -1,0 +1,6 @@
+[nombre: Mark,usuario: kai,contra: kai,saldo: 0.0]
+[nombre: koko,usuario: koko,contra: koko,saldo: 0.0]
+[nombre: yoya,usuario: pene,contra: verga,saldo: 0.0]
+[nombre: rey,usuario: versa,contra: mierda,saldo: 0.0]
+[nombre: qqq,usuario: q,contra: q,saldo: 0.0]
+[nombre: puta,usuario: puta,contra: puta,saldo: 0.0]
