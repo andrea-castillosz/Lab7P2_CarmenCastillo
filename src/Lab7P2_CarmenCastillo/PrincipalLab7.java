@@ -619,7 +619,11 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CrearUsuarioMouseClicked
 
     private void btn_IniciarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_IniciarSMouseClicked
-
+        AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
+        ap.cargarArchivo();
+        for (Usuario v : ap.getListaUser()) {
+            System.out.println(v);
+        }
     }//GEN-LAST:event_btn_IniciarSMouseClicked
 
     private void btn_CrearUsuarioCUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearUsuarioCUMouseClicked
@@ -665,30 +669,32 @@ public class PrincipalLab7 extends javax.swing.JFrame {
 //            modeloARBOL.reload();
 //
 //            JOptionPane.showMessageDialog(null, "¡Usuario Creado!");
-//
-//            vCrearUsuario.pack();
-//            vCrearUsuario.setLocationRelativeTo(null);
-//            vCrearUsuario.setVisible(false);
-//            this.setVisible(true);
 
+            vCrearUsuario.pack();
+            vCrearUsuario.setLocationRelativeTo(null);
+            vCrearUsuario.setVisible(false);
+            this.setVisible(true);
         }
     }//GEN-LAST:event_btn_CrearUsuarioCUMouseClicked
 
     private void llenarLista() {
-        for (Usuario v : listuser) {
+        AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
+        ap.cargarArchivo();
+        for (Usuario v : ap.getListaUser()) {
             listuser.add(v);
         }
     }
 
     private void llenarJtreePersonasAdmin() {
-
-        for (Usuario upa : listuser) {
+        AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
+        ap.cargarArchivo();
+        for (Usuario upa : ap.getListaUser()) {
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_Usuarios.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
 
             int centinela = -1;
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals(txt_NombreCU.getText())) {
+                if (raiz.getChildAt(i).toString().equals(upa.getNombre())) {
                     DefaultMutableTreeNode us = new DefaultMutableTreeNode(upa.getUsuario());
                     ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(us);
                     centinela = 1;

@@ -47,7 +47,7 @@ public class AdministrarUsuarios {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
             for (Usuario t : listaUser) {
-                bw.write("[" + "nombre: " + t.getNombre() + "," + "usuario: " + t.getUsuario() + "," + "contra: " + t.getContra() + "," + "saldo: " + t.getSaldoCompra() + "]\n");
+                bw.write("[nombre:" + t.getNombre() + ",usuario:" + t.getUsuario() + ",contra:" + t.getContra() + ",saldo:" + t.getSaldoCompra() + "]\n");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -60,20 +60,27 @@ public class AdministrarUsuarios {
         Scanner sc = null;
         listaUser = new ArrayList();
         if (archivo.exists()) {
+            System.out.println("ya por favor");
             try {
                 sc = new Scanner(archivo);
                 String token = "";
                 token += sc.next();
-                token = token.replace("[", "");
-                token = token.replace("nombre: ", "");
-                token = token.replace("usuario: ", "");
-                token = token.replace("contra: ", "");
-                token = token.replace("saldo: ", "");
+//                token = token.replace("[", "");
+                token = token.replace("[nombre:", "");
+                token = token.replace("usuario:", "");
+                token = token.replace("contra:", "");
+                token = token.replace("saldo:", "");
                 token = token.replace("]", "");
+                //token = token.replace(":", "");
                 String[] arreglo = token.split(",");
+                System.out.println(token);
+                for (int i = 0; i < arreglo.length; i++) {
+                    System.out.println(arreglo[i]);
+                }
                 while (sc.hasNext()) {
                     token += sc.next();
                     listaUser.add(new Usuario(arreglo[0], arreglo[1], arreglo[2], 0));
+                    System.out.println("ojala me mate");
                 }
             } catch (Exception ex) {
             }
