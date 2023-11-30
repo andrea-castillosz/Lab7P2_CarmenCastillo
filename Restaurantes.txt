@@ -1,0 +1,2 @@
+[nombre:popo,ubicacion:,saldo:0.0]
+[nombre:traka,ubicacion:,saldo:0.0]

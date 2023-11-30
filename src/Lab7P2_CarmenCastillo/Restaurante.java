@@ -56,6 +56,11 @@ public class Restaurante {
     public void setSaldoV(double SaldoV) {
         this.SaldoV = SaldoV;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + Nombre + "/ Ubicacion: ";
+    }
     
     
     
