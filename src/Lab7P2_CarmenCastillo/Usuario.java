@@ -55,6 +55,11 @@ public class Usuario {
     public void setSaldoCompra(double saldoCompra) {
         this.saldoCompra = saldoCompra;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "Nombre=" + Nombre + ", Usuario=" + Usuario + ", Contra=" + Contra + ", saldoCompra=" + saldoCompra + '}';
+    }
     
     
     

@@ -56,33 +56,62 @@ public class AdministrarUsuarios {
         fw.close();
     }
 
+//    public void cargarArchivo() {
+//        Scanner sc = null;
+//        listaUser = new ArrayList();
+//        if (archivo.exists()) {
+////            System.out.println("ya por favor");
+//            try {
+//                sc = new Scanner(archivo); // 
+//                String token = "";
+//                token += sc.nextLine();
+////                token = token.replace("[", "");
+//                token = token.replace("[nombre:", "");
+//                token = token.replace("usuario:", "");
+//                token = token.replace("contra:", "");
+//                token = token.replace("saldo:", "");
+//                token = token.replace("]", "");
+//                //token = token.replace(":", "");
+//                String[] arreglo = token.split(",");
+////                System.out.println(token);
+//                
+//                while (sc.hasNext()) {
+//                    token += sc.next();
+//                    listaUser.add(new Usuario(arreglo[0], arreglo[1], arreglo[2], 0));
+////                    System.out.println("ojala me mate");
+//                    
+//                }
+//            } catch (Exception ex) {
+//            }
+//            sc.close();
+//        }
+//    }
     public void cargarArchivo() {
-        Scanner sc = null;
         listaUser = new ArrayList();
+
         if (archivo.exists()) {
-//            System.out.println("ya por favor");
-            try {
-                sc = new Scanner(archivo);
-                String token = "";
-                token += sc.next();
-//                token = token.replace("[", "");
-                token = token.replace("[nombre:", "");
-                token = token.replace("usuario:", "");
-                token = token.replace("contra:", "");
-                token = token.replace("saldo:", "");
-                token = token.replace("]", "");
-                //token = token.replace(":", "");
-                String[] arreglo = token.split(",");
-//                System.out.println(token);
-                
+            try ( Scanner sc = new Scanner(archivo)) {
                 while (sc.hasNext()) {
-                    token += sc.next();
-                    listaUser.add(new Usuario(arreglo[0], arreglo[1], arreglo[2], 0));
-//                    System.out.println("ojala me mate");
+                    String line = sc.nextLine();
+                    String[] tokens = line.split(","); //taba haciedno algo
+
+                    // Procesar cada token
+                    for (String token : tokens) {
+                        token = token.replace("[nombre:", "");
+                        token = token.replace("usuario:", "");
+                        token = token.replace("contra:", "");
+                        token = token.replace("saldo:", "");
+                        token = token.replace("]", "");
+
+                        String[] arreglo = token.split(",");
+                        // Asumo que arreglo tiene al menos 4 elementos
+                        listaUser.add(new Usuario(arreglo[0], arreglo[1], arreglo[2], 0));
+                    }
                 }
             } catch (Exception ex) {
+                ex.printStackTrace(); // Imprimir detalles de la excepción para debug
             }
-            sc.close();
         }
-    }
+    } 
+
 }

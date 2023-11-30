@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -207,6 +208,11 @@ public class PrincipalLab7 extends javax.swing.JFrame {
 
         pane.setBackground(new java.awt.Color(255, 255, 255));
         pane.setForeground(new java.awt.Color(0, 0, 0));
+        pane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                paneStateChanged(evt);
+            }
+        });
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -649,6 +655,13 @@ public class PrincipalLab7 extends javax.swing.JFrame {
             txt_Usuario.setText("");
             txt_Contra.setText("");
         }
+
+        AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
+        ap.cargarArchivo();
+        for (Usuario usuario : ap.getListaUser()) {
+            System.out.println(usuario);
+        }
+
     }//GEN-LAST:event_btn_IniciarSMouseClicked
 
     private void btn_CrearUsuarioCUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearUsuarioCUMouseClicked
@@ -693,7 +706,6 @@ public class PrincipalLab7 extends javax.swing.JFrame {
 //            }  // fin if          
 //            modeloARBOL.reload();
 //
-            
             txt_NombreCU.setText("");
             txt_UsuarioCU.setText("");
             txt_ContraCU.setText("");
@@ -762,7 +774,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
                     ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(us);
                     centinela = 1;
                 } //fin if
-            } //fin for  
+            } //fin for
 
             if (centinela == -1) {
                 DefaultMutableTreeNode p = new DefaultMutableTreeNode(upa.getNombre());
@@ -811,6 +823,18 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_addRestauranteMouseClicked
+
+    private void paneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_paneStateChanged
+        AdminRestaurante ap = new AdminRestaurante("./Restaurantes.txt");
+        ap.cargarArchivo();
+        cb_RestProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{}));
+        for (Restaurante c : ap.getListRest()) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_RestProd.getModel();
+            modelo.addElement(c);
+            cb_RestProd.setModel(modelo);
+        }
+
+    }//GEN-LAST:event_paneStateChanged
 
     /**
      * @param args the command line arguments
