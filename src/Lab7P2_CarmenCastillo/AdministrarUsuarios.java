@@ -60,7 +60,7 @@ public class AdministrarUsuarios {
         Scanner sc = null;
         listaUser = new ArrayList();
         if (archivo.exists()) {
-            System.out.println("ya por favor");
+//            System.out.println("ya por favor");
             try {
                 sc = new Scanner(archivo);
                 String token = "";
@@ -73,14 +73,12 @@ public class AdministrarUsuarios {
                 token = token.replace("]", "");
                 //token = token.replace(":", "");
                 String[] arreglo = token.split(",");
-                System.out.println(token);
-                for (int i = 0; i < arreglo.length; i++) {
-                    System.out.println(arreglo[i]);
-                }
+//                System.out.println(token);
+                
                 while (sc.hasNext()) {
                     token += sc.next();
                     listaUser.add(new Usuario(arreglo[0], arreglo[1], arreglo[2], 0));
-                    System.out.println("ojala me mate");
+//                    System.out.println("ojala me mate");
                 }
             } catch (Exception ex) {
             }

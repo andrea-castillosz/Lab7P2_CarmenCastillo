@@ -26,7 +26,9 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         llenarLista();
+        llenarListaRest();
         llenarJtreePersonasAdmin();
+        llenarJtreeRestAdmin();
 
     }
 
@@ -55,6 +57,12 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         vParaAdmin = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         pane = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        userLabel11 = new javax.swing.JLabel();
+        txt_nRestaurante = new javax.swing.JTextField();
+        txt_Ubicacion = new javax.swing.JFormattedTextField();
+        btn_addRestaurante = new javax.swing.JToggleButton();
+        userLabel13 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         userLabel9 = new javax.swing.JLabel();
         txt_nProducto = new javax.swing.JTextField();
@@ -62,12 +70,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         txt_precioP = new javax.swing.JFormattedTextField();
         btn_addProdu = new javax.swing.JToggleButton();
         cb_RestProd = new javax.swing.JComboBox<>();
-        jPanel7 = new javax.swing.JPanel();
-        userLabel11 = new javax.swing.JLabel();
-        txt_nRestaurante = new javax.swing.JTextField();
-        txt_Ubicacion = new javax.swing.JFormattedTextField();
-        btn_addRestaurante = new javax.swing.JToggleButton();
-        userLabel13 = new javax.swing.JLabel();
+        userLabel12 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lista_DelRest = new javax.swing.JList<>();
@@ -205,67 +208,6 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         pane.setBackground(new java.awt.Color(255, 255, 255));
         pane.setForeground(new java.awt.Color(0, 0, 0));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-
-        userLabel9.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        userLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        userLabel9.setText("Nombre del Producto");
-
-        txt_nProducto.setBackground(new java.awt.Color(204, 204, 204));
-        txt_nProducto.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        txt_nProducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        userLabel10.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        userLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        userLabel10.setText("Precio");
-
-        txt_precioP.setBackground(new java.awt.Color(204, 204, 204));
-        txt_precioP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-
-        btn_addProdu.setBackground(new java.awt.Color(255, 255, 255));
-        btn_addProdu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_addProdu.setForeground(new java.awt.Color(0, 0, 0));
-        btn_addProdu.setText("Agregar Producto");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_addProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(userLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nProducto)
-                            .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(cb_RestProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(95, 95, 95))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(cb_RestProd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(btn_addProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
-
-        pane.addTab("Agregar Producto", jPanel5);
-
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         userLabel11.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
@@ -283,10 +225,15 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         btn_addRestaurante.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_addRestaurante.setForeground(new java.awt.Color(0, 0, 0));
         btn_addRestaurante.setText("Agregar Restaurante");
+        btn_addRestaurante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_addRestauranteMouseClicked(evt);
+            }
+        });
 
         userLabel13.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         userLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        userLabel13.setText("Precio");
+        userLabel13.setText("Ubicación");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -326,6 +273,74 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         );
 
         pane.addTab("Agregar Restaurante", jPanel7);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        userLabel9.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        userLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        userLabel9.setText("Nombre del Producto");
+
+        txt_nProducto.setBackground(new java.awt.Color(204, 204, 204));
+        txt_nProducto.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_nProducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        userLabel10.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        userLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        userLabel10.setText("Precio");
+
+        txt_precioP.setBackground(new java.awt.Color(204, 204, 204));
+        txt_precioP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        btn_addProdu.setBackground(new java.awt.Color(255, 255, 255));
+        btn_addProdu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_addProdu.setForeground(new java.awt.Color(0, 0, 0));
+        btn_addProdu.setText("Agregar Producto");
+
+        userLabel12.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        userLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        userLabel12.setText("Restaurante a añadir producto.");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(98, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btn_addProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(userLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nProducto)
+                            .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cb_RestProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(95, 95, 95))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(userLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_RestProd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(userLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_precioP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addComponent(btn_addProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+
+        pane.addTab("Agregar Producto", jPanel5);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -619,10 +634,20 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CrearUsuarioMouseClicked
 
     private void btn_IniciarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_IniciarSMouseClicked
-        AdministrarUsuarios ap = new AdministrarUsuarios("./Usuarios.txt");
-        ap.cargarArchivo();
-        for (Usuario v : ap.getListaUser()) {
-            System.out.println(v);
+        boolean correct = false;
+        for (int i = 0; i < listuser.size(); i++) {
+            if (listuser.get(i).getUsuario().equals(txt_Usuario.getText()) && listuser.get(i).getContra().equals(txt_Contra.getText())) {
+                this.setVisible(false);
+                vParaUsuario.pack();
+                vParaUsuario.setLocationRelativeTo(null);
+                vParaUsuario.setVisible(true);
+                correct = true;
+            }
+        }
+        if (!correct) {
+            JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña incorrectos.");
+            txt_Usuario.setText("");
+            txt_Contra.setText("");
         }
     }//GEN-LAST:event_btn_IniciarSMouseClicked
 
@@ -668,8 +693,11 @@ public class PrincipalLab7 extends javax.swing.JFrame {
 //            }  // fin if          
 //            modeloARBOL.reload();
 //
-//            JOptionPane.showMessageDialog(null, "¡Usuario Creado!");
-
+            
+            txt_NombreCU.setText("");
+            txt_UsuarioCU.setText("");
+            txt_ContraCU.setText("");
+            JOptionPane.showMessageDialog(null, "¡Usuario Creado!");
             vCrearUsuario.pack();
             vCrearUsuario.setLocationRelativeTo(null);
             vCrearUsuario.setVisible(false);
@@ -683,6 +711,41 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         for (Usuario v : ap.getListaUser()) {
             listuser.add(v);
         }
+    }
+
+    private void llenarListaRest() {
+        AdminRestaurante ap = new AdminRestaurante("./Restaurantes.txt");
+        ap.cargarArchivo();
+        for (Restaurante v : ap.getListRest()) {
+            listrest.add(v);
+        }
+    }
+
+    private void llenarJtreeRestAdmin() {
+        AdminRestaurante ap = new AdminRestaurante("./Restaurantes.txt");
+        ap.cargarArchivo();
+        for (Restaurante upa : ap.getListRest()) {
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_Restaurantes.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+
+            int centinela = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(upa.getNombre())) {
+                    DefaultMutableTreeNode us = new DefaultMutableTreeNode(upa.getUbicacion());
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(us);
+                    centinela = 1;
+                } //fin if
+            } //fin for  
+
+            if (centinela == -1) {
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(upa.getNombre());
+                DefaultMutableTreeNode us = new DefaultMutableTreeNode(upa.getUbicacion());
+                p.add(us);
+                raiz.add(p);
+            }  // fin if          
+            modeloARBOL.reload();
+        }
+
     }
 
     private void llenarJtreePersonasAdmin() {
@@ -718,6 +781,36 @@ public class PrincipalLab7 extends javax.swing.JFrame {
         vParaAdmin.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jToggleButton1MouseClicked
+
+    private void btn_addRestauranteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addRestauranteMouseClicked
+
+        boolean RestRep = false;
+        for (int i = 0; i < listrest.size(); i++) {
+
+            if (txt_nRestaurante.getText().equals(listrest.get(i).getNombre())) {
+                JOptionPane.showMessageDialog(null, "¡Este restaurante ya existe!");
+                RestRep = true;
+            }
+//me duele la espalde
+        }
+
+        if (!RestRep) {
+            AdminRestaurante ap = new AdminRestaurante("./Restaurantes.txt");
+            ap.cargarArchivo();
+            Restaurante u = new Restaurante(txt_nRestaurante.getText(), txt_Ubicacion.getText(), 0);
+            ap.getListRest().add(u);
+            try {
+                ap.escribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(PrincipalLab7.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            txt_nRestaurante.setText("");
+            txt_Ubicacion.setText("");
+            JOptionPane.showMessageDialog(null, "¡Restaurante Creado!");
+
+        }
+
+    }//GEN-LAST:event_btn_addRestauranteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -798,6 +891,7 @@ public class PrincipalLab7 extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txt_precioP;
     private javax.swing.JLabel userLabel10;
     private javax.swing.JLabel userLabel11;
+    private javax.swing.JLabel userLabel12;
     private javax.swing.JLabel userLabel13;
     private javax.swing.JLabel userLabel3;
     private javax.swing.JLabel userLabel4;

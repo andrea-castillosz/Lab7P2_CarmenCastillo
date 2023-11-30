@@ -47,7 +47,7 @@ public class AdminRestaurante {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
             for (Restaurante t : listRest) {
-                bw.write("[" + "nombre: " + t.getNombre() + "," + "ubicacion: " + t.getUbicacion() + "," + "saldo: " + t.getSaldoV() + "]\n");
+                bw.write("[nombre:" + t.getNombre() + ",ubicacion:" + t.getUbicacion() + ",saldo:" + t.getSaldoV() + "]\n");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -64,10 +64,10 @@ public class AdminRestaurante {
                 sc = new Scanner(archivo);
                 String token = "";
                 token += sc.next();
-                token = token.replace("[", "");
-                token = token.replace("nombre: ", "");
-                token = token.replace("ubicacion: ", "");
-                token = token.replace("saldo: ", "");
+                //token = token.replace("[", "");
+                token = token.replace("[nombre:", "");
+                token = token.replace("ubicacion:", "");
+                token = token.replace("saldo:", "");
                 token = token.replace("]", "");
                 String[] arreglo = token.split(",");
                 while (sc.hasNext()) {

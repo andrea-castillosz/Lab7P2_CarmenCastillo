@@ -1,7 +1,0 @@
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]
-[nombre:ya,usuario:ye,contra:yi,saldo:0.0]

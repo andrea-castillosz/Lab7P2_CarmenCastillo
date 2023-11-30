@@ -246,140 +246,6 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel5">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Agregar Producto">
-                        <Property name="tabTitle" type="java.lang.String" value="Agregar Producto"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="98" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btn_addProdu" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="userLabel9" max="32767" attributes="0"/>
-                                          <Component id="userLabel10" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txt_nProducto" max="32767" attributes="0"/>
-                                          <Component id="txt_precioP" min="-2" pref="280" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="cb_RestProd" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="cb_RestProd" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="userLabel9" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="txt_nProducto" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="userLabel10" max="32767" attributes="0"/>
-                                  <Component id="txt_precioP" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="btn_addProdu" min="-2" pref="34" max="-2" attributes="0"/>
-                              <EmptySpace pref="179" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="userLabel9">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Roboto Light" size="18" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="0" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Nombre del Producto"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txt_nProducto">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="SansSerif" size="14" style="0"/>
-                        </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                            <BevelBorder/>
-                          </Border>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="userLabel10">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Roboto Light" size="18" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="0" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Precio"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="txt_precioP">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                        </Property>
-                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                          <Format format="#0.00" subtype="-1" type="0"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JToggleButton" name="btn_addProdu">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="12" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="0" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Agregar Producto"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="cb_RestProd">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="0"/>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
-                  </SubComponents>
-                </Container>
                 <Container class="javax.swing.JPanel" name="jPanel7">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -492,6 +358,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Agregar Restaurante"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_addRestauranteMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="userLabel13">
                       <Properties>
@@ -501,7 +370,155 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
+                        <Property name="text" type="java.lang.String" value="Ubicaci&#xf3;n"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanel5">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Agregar Producto">
+                        <Property name="tabTitle" type="java.lang.String" value="Agregar Producto"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="98" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btn_addProdu" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="userLabel9" max="32767" attributes="0"/>
+                                          <Component id="userLabel10" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txt_nProducto" max="32767" attributes="0"/>
+                                          <Component id="txt_precioP" min="-2" pref="280" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="cb_RestProd" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="userLabel12" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="userLabel12" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cb_RestProd" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="userLabel9" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txt_nProducto" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="userLabel10" max="32767" attributes="0"/>
+                                  <Component id="txt_precioP" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="btn_addProdu" min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace pref="179" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="userLabel9">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Roboto Light" size="18" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nombre del Producto"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txt_nProducto">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="SansSerif" size="14" style="0"/>
+                        </Property>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="userLabel10">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Roboto Light" size="18" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Precio"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="txt_precioP">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                        </Property>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                          <Format format="#0.00" subtype="-1" type="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="btn_addProdu">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Agregar Producto"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cb_RestProd">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="userLabel12">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Roboto Light" size="18" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Restaurante a a&#xf1;adir producto."/>
                       </Properties>
                     </Component>
                   </SubComponents>
